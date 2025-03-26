@@ -1,10 +1,14 @@
 # TOAST: Spatially Aware Optimal Transport for Alignment of Spatial Omics Data
 
 <p align="left">
+  <img src="logo.pdf" alt="TOAST Logo" width="180">
+</p>
+
+<p align="left">
   <img src="mainfig.png" alt="Logo" width="500" align="left" style="margin-right: 20px;">
 
 ## Abstract
-Optimal Transport (OT) has emerged as a foundational framework for analyzing and aligning distributions across various domains. Recent advancements in spatial omics technologies have provided unprecedented insights into the spatial organization of tissues, but challenges remain in aligning spatial slices and integrating complementary single-cell and spatial data. Here, we propose a novel OT-based framework, named TOAST, that extends the Fused Gromov-Wasserstein (FGW) distance to more comprehensively model the heterogeneity of local molecular interactions. By introducing \textit{spatial coherence}, quantified through the entropy of local neighborhoods, and \textit{neighborhood consistency}, which preserves the expression profiles of neighboring spots, TOAST’s objective function significantly improves the alignment of spatially resolved tissue slices and the mapping between single-cell and spatial data. Through comprehensive evaluations on both simulated and real-world datasets, including human brain cortex Visium data, Axolotl brain Stereo-seq data, mouse embryo seqFISH data, and Imaging Mass Cytometry from multiple cancer types, we demonstrate that our method consistently outperforms traditional FGW and other OT-based alignment methods. Specifically, TOAST improves the accuracy of spatial slice alignment, better preserves cell type compositions, recovers lineage trajectories in developmental brain data and reconstructs spatial relationships in spatial transcriptomics mouse embryo data. By integrating spatial constraints into OT, our framework provides a principled approach to enhance the biological interpretability of spatially resolved omics data and facilitate multimodal data integration.
+Optimal Transport (OT) has emerged as a foundational framework for analyzing and aligning distributions across various domains. Recent advancements in spatial omics technologies have provided unprecedented insights into the spatial organization of tissues, but challenges remain in aligning spatial slices and integrating complementary single-cell and spatial data. Here, we propose a novel OT-based framework, named TOAST, that extends the Fused Gromov-Wasserstein (FGW) distance to more comprehensively model the heterogeneity of local molecular interactions. By introducing spatial coherence, quantified through the entropy of local neighborhoods, and neighborhood consistency, which preserves the expression profiles of neighboring spots, TOAST’s objective function significantly improves the alignment of spatially resolved tissue slices and the mapping between single-cell and spatial data. Through comprehensive evaluations on both simulated and real-world datasets, including human brain cortex Visium data, Axolotl brain Stereo-seq data, mouse embryo seqFISH data, and Imaging Mass Cytometry from multiple cancer types, we demonstrate that our method consistently outperforms traditional FGW and other OT-based alignment methods. Specifically, TOAST improves the accuracy of spatial slice alignment, better preserves cell type compositions, recovers lineage trajectories in developmental brain data and reconstructs spatial relationships in spatial transcriptomics mouse embryo data. By integrating spatial constraints into OT, our framework provides a principled approach to enhance the biological interpretability of spatially resolved omics data and facilitate multimodal data integration.
 
 ## Summary
 
@@ -16,8 +20,8 @@ In this work, we introduce a novel spatially aware Fused Gromov-Wasserstein (FGW
 
 To install the necessary dependencies, clone the repository and run:
 ```bash
-git clone https://github.com/tanevskilab/spatial_OT.git
-cd spatial_OT
+git clone https://github.com/cecca46/TOAST
+cd TOAST
 pip install -r requirements.txt
 ```
 
