@@ -1,6 +1,6 @@
 <table>
 <tr>
-<td><img src="logo.png" width="200"></td>
+<td><img src="logo.png" width="300"></td>
 <td>
 
 # TOAST: Spatially Aware Optimal Transport for Alignment of Spatial Omics Data
