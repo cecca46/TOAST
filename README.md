@@ -3,7 +3,7 @@
 <td><img src="logo.png" width="350"></td>
 <td>
 
-# TOAST: Spatially Aware Optimal Transport for Alignment of Spatial Omics Data
+# Spatially Aware Optimal Transport for Alignment of Spatial Omics Data
 
 </td>
 </tr>
