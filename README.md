@@ -3,7 +3,7 @@
 <td><img src="logo.png" width="350"></td>
 <td>
 
-# Spatially Aware Optimal Transport for Alignment of Spatial Omics Data
+# Topography Aware Optimal Transport for Alignment of Spatial Omics Data
 
 </td>
 </tr>
