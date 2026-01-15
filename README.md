@@ -36,4 +36,4 @@ pip install -r requirements.txt
 - **`spatial_OT/utils.py`**: Provides additional utility functions such as data preprocessing, and graph construction.
 
 ## Reproducing the results
-We provide the following python notebooks to reproduce the results in the paper for the simulated datatset, the Human LIBD data, Mouse Atlas and Stereo-seq data: **`DLPFC.ipynb`**, **`1d-sim.ipynb`**, **`2d-sim.ipynb`**, **`MouseAtlas.ipynb`** and **`StereoSeq.ipynb`**.
+We provide the following python notebooks to reproduce the results in the paper for the simulated datatset, the Human LIBD data, Mouse Atlas and Stereo-seq data: **`DLPFC.ipynb`**, **`1d-sim.ipynb`**, **`2d-sim.ipynb`**, **`MouseAtlas.ipynb`**, **`StereoSeq.ipynb`**, **`MultimodalAligment.ipynb`** and **`Gene_imputation.ipynb`**
