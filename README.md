@@ -37,3 +37,8 @@ pip install -r requirements.txt
 
 ## Reproducing the results
 We provide the following python notebooks to reproduce the results in the paper for the simulated datatset, the Human LIBD data, Mouse Atlas and Stereo-seq data: **`DLPFC.ipynb`**, **`1d-sim.ipynb`**, **`2d-sim.ipynb`**, **`MouseAtlas.ipynb`**, **`StereoSeq.ipynb`**, **`MultimodalAligment.ipynb`** and **`Gene_imputation.ipynb`**
+
+## Running TOAST on new data
+To run TOAST on new data, first load and preprocess each slice into an AnnData object containing: raw count matrix, spatial coordinates stored in adata.obsm["spatial"], cell-type annotations stored in adata.obs["gt"] (optional but required for evaluation).
+Both slices should be normalized (library-size normalization and log transformation) and embedded into a shared PCA space. Spatial kNN graphs are then constructed from 2D coordinates to compute (i) spatial entropy per spot and (ii) average neighborhood expression profiles. We provide `compute_spatial_entropy(G)`, `compute_average_neighbor_expression(G)` to compute these from a graph `G`.
+
