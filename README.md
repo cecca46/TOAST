@@ -40,5 +40,13 @@ We provide the following python notebooks to reproduce the results in the paper 
 
 ## Running TOAST on new data
 To run TOAST on new data, first load and preprocess each slice into an AnnData object containing: raw count matrix, spatial coordinates stored in adata.obsm["spatial"], cell-type annotations stored in adata.obs["gt"] (optional but required for evaluation).
-Both slices should be normalized (library-size normalization and log transformation) and embedded into a shared PCA space. Spatial kNN graphs are then constructed from 2D coordinates to compute (i) spatial entropy per spot and (ii) average neighborhood expression profiles. We provide `compute_spatial_entropy(G)`, `compute_average_neighbor_expression(G)` to compute these from a graph `G`.
 
+Both slices should be normalized (library-size normalization and log transformation) and embedded into a shared PCA space. Spatial kNN graphs are then constructed from 2D coordinates to compute (i) spatial entropy per spot and (ii) average neighborhood expression profiles. We provide `compute_spatial_entropy(G)`, `compute_average_neighbor_expression(G)` to compute these from a graph `G`. See **`DLPFC.ipynb`** for a simple example.
+
+TOAST requires the following normalized cost matrices:
+- **`M`**: cross-slice expression distance matrix
+- **`C1, C2`**: intra-slice spatial distance matrices
+- **`C3`**: cross-slice spatial entropy difference matrix
+- - **`C4`**: cross-slice neighborhood expression distance matrix
+
+Each matrix should be scaled to \[0,1\] before optimization.
