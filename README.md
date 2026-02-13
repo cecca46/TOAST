@@ -47,6 +47,11 @@ TOAST requires the following normalized cost matrices:
 - **`M`**: cross-slice expression distance matrix
 - **`C1, C2`**: intra-slice spatial distance matrices
 - **`C3`**: cross-slice spatial entropy difference matrix
-- - **`C4`**: cross-slice neighborhood expression distance matrix
+- **`C4`**: cross-slice neighborhood expression distance matrix
 
-Each matrix should be scaled to \[0,1\] before optimization.
+Each matrix should be scaled to \[0,1\] before optimization. We use uniform marginals and transport plan:
+```python
+p, q = ot.unif(X.shape[0]), ot.unif(Y.shape[0])
+G0 = np.outer(p, q)
+```
+Then, TOAST transport plan is given by the function: `compute_transport(G0, epsilon, alpha,C1,C2,p,q,M,C3,C4)`
