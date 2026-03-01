@@ -1,0 +1,177 @@
+Metadata-Version: 2.4
+Name: toast-spatial-ot
+Version: 0.1.0
+Summary: TOAST: Topography-aware Optimal Transport for spatial omics
+Author: TOAST Authors
+License: MIT License
+        
+        Copyright (c) 2025 Francesco Ceccarelli
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+        
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.24
+Requires-Dist: scipy>=1.10
+Requires-Dist: pandas>=1.5
+Requires-Dist: scikit-learn>=1.3
+Requires-Dist: networkx>=3.0
+Requires-Dist: POT>=0.9.0
+Requires-Dist: anndata>=0.9
+Requires-Dist: scanpy>=1.9
+Dynamic: license-file
+
+# TOAST: Topography-aware Optimal Transport for Spatial Omics
+
+TOAST aligns spatial omics slices with an OT objective that combines expression similarity and spatial structure.
+
+This repository is now organized as a reusable Python package plus CLI, with notebooks kept separately for paper reproduction.
+
+## Installation
+
+```bash
+pip install -r requirements.txt
+pip install -e .
+```
+
+The editable install makes `spatial_OT` importable from anywhere in your environment.
+
+## Project layout
+
+- `spatial_OT/OT.py`: core Sinkhorn-based transport solver.
+- `spatial_OT/pipeline.py`: high-level alignment API.
+- `spatial_OT/io.py`: CSV and AnnData adapters.
+- `spatial_OT/preprocessing.py`: graph construction and feature preparation.
+- `spatial_OT/costs.py`: cost matrix construction and normalization.
+- `spatial_OT/metrics.py`: alignment metrics.
+- `spatial_OT/cli.py`: command line interface.
+- `notebooks/paper_reproduction/`: original notebooks for reproducing paper analyses.
+
+## Quickstart (Python API)
+
+### CSV input
+
+```python
+from spatial_OT import align_csv
+
+result = align_csv(
+    source_csv="data/simulations/2D_sim_t1.csv",
+    target_csv="data/simulations/2D_sim_t2.csv",
+    x_col="x",
+    y_col="y",
+    label_col="cell_type",  # optional
+    alpha=0.5,
+    epsilon=0.1,
+    k=10,
+    n_comps=8,
+    use_spatial_terms=True,
+)
+
+transport = result.transport
+metrics = result.metrics
+```
+
+### AnnData input
+
+```python
+import scanpy as sc
+from spatial_OT import align_anndata
+
+source = sc.read_h5ad("source.h5ad")
+target = sc.read_h5ad("target.h5ad")
+
+result = align_anndata(
+    source_adata=source,
+    target_adata=target,
+    spatial_key="spatial",
+    label_key="cell_type",  # optional
+    embedding_key=None,      # optional precomputed embedding in obsm
+    alpha=0.5,
+    epsilon=0.1,
+    k=10,
+    n_comps=50,
+    use_spatial_terms=True,
+)
+```
+
+## CLI usage
+
+Run CLI as a module:
+
+```bash
+python -m spatial_OT.cli align --help
+```
+
+Or via console script after `pip install -e .`:
+
+```bash
+toast align --help
+```
+
+### CSV mode
+
+```bash
+python -m spatial_OT.cli align \
+  --source-csv data/simulations/2D_sim_t1.csv \
+  --target-csv data/simulations/2D_sim_t2.csv \
+  --x-col x \
+  --y-col y \
+  --label-col cell_type \
+  --alpha 0.5 \
+  --epsilon 0.1 \
+  --k 10 \
+  --n-comps 8 \
+  --use-spatial-terms \
+  --output-dir outputs/csv_example
+```
+
+### AnnData mode
+
+```bash
+python -m spatial_OT.cli align \
+  --source-h5ad source.h5ad \
+  --target-h5ad target.h5ad \
+  --spatial-key spatial \
+  --label-key cell_type \
+  --alpha 0.5 \
+  --epsilon 0.1 \
+  --k 10 \
+  --n-comps 50 \
+  --use-spatial-terms \
+  --output-dir outputs/anndata_example
+```
+
+CLI outputs:
+
+- `transport.npy`
+- `transport.csv`
+- `metrics.json`
+
+## Reproducing paper analyses
+
+All notebooks used in the original study are available in:
+
+- `notebooks/paper_reproduction/`
+
+## Data
+
+Simulated data are included under `data/simulations/`.
+
+For public datasets used in the study, see `data/README.md`.
