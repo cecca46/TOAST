@@ -1,7 +1,13 @@
-<h1>
-  <img src="logo.png" alt="TOAST logo" width="100" style="vertical-align: middle;" />
-  TOAST: Topography-aware Optimal Transport for Spatial Omics
-</h1>
+<table>
+<tr>
+<td><img src="logo.png" width="350"></td>
+<td>
+
+# Topography Aware Optimal Transport for Alignment of Spatial Omics Data
+
+</td>
+</tr>
+</table>
 
 TOAST aligns spatial omics slices with an OT objective that combines expression similarity and spatial structure.
 
