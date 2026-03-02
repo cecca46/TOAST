@@ -18,8 +18,6 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-The editable install makes `spatial_OT` importable from anywhere in your environment.
-
 ## Project layout
 
 - `spatial_OT/OT.py`: core Sinkhorn-based transport solver.
