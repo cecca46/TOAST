@@ -1,2 +1,0 @@
-[console_scripts]
-toast = spatial_OT.cli:main
