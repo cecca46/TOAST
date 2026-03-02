@@ -9,7 +9,7 @@
 </tr>
 </table>
 
-TOAST aligns spatial omics slices with an OT objective that combines expression similarity and spatial structure.
+TOAST aligns spatial omics slices with an OT objective that combines expression similarity, global structure and local spatial constraints.
 
 ## Installation
 
