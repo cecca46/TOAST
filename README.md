@@ -1,10 +1,8 @@
 # TOAST: Topography-aware Optimal Transport for Spatial Omics
 
+![TOAST logo](logo.png)
+
 TOAST aligns spatial omics slices with an OT objective that combines expression similarity and spatial structure.
-
-Cell-type labels are required for alignment and metrics. Labels can come from either manual annotation or gene-expression clustering.
-
-This repository is now organized as a reusable Python package plus CLI, with notebooks kept separately for paper reproduction.
 
 ## Installation
 
