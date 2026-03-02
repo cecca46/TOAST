@@ -137,6 +137,12 @@ All notebooks used in the original study are available in:
 
 - `notebooks/paper_reproduction/`
 
+## Citation
+
+If you use this code in your work, please cite:
+
+- Ceccarelli F, Liò P, Saez-Rodriguez J, Holden SB, Tanevski J. Topography Aware Optimal Transport for Alignment of Spatial Omics Data. bioRxiv. 2025. doi: https://doi.org/10.1101/2025.04.15.648894
+
 ## Data
 
 Simulated data are included under `data/simulations/`.
