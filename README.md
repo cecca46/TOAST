@@ -1,5 +1,5 @@
 <h1>
-  <img src="logo.png" alt="TOAST logo" width="40" style="vertical-align: middle;" />
+  <img src="logo.png" alt="TOAST logo" width="72" style="vertical-align: middle;" />
   TOAST: Topography-aware Optimal Transport for Spatial Omics
 </h1>
 
