@@ -141,7 +141,7 @@ All notebooks used in the original study are available in:
 
 If you use this code in your work, please cite:
 
-- Ceccarelli F, Liò P, Saez-Rodriguez J, Holden SB, Tanevski J. Topography Aware Optimal Transport for Alignment of Spatial Omics Data, Cell Reports Methods. 
+- Ceccarelli F, Liò P, Saez-Rodriguez J, Holden SB, Tanevski J. Topography Aware Optimal Transport for Alignment of Spatial Omics Data, Cell Reports Methods, https://doi.org/10.1016/j.crmeth.2026.101373
 
 ## Data
 
